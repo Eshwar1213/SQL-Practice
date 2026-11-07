@@ -20,19 +20,16 @@ SELECT employee_id, first_name, last_name, department_id
 FROM employees
 WHERE department_id IS NULL;
 
-
 --05. The HR team is searching for employees whose first names begin with the letter S. They want to prepare a list of these employees for an internal communication.
 SELECT employee_id, first_name, last_name
 FROM employees
 WHERE UPPER(first_name) LIKE 'S%';
-
 
 --06. The HR manager wants to recognize the five highest-paid employees in the company for a special compensation review.
 SELECT employee_id, first_name, last_name, salary
 FROM employees
 ORDER BY salary DESC
 FETCH FIRST 5 ROWS ONLY;
-
 
 --07. The finance department wants to compare salary expenses across departments. 
 --The manager needs a report showing the total salary expenditure for each department that has employees.
@@ -41,7 +38,6 @@ FROM employees
 WHERE department_id IS NOT NULL
 GROUP BY department_id
 ORDER BY department_id ASC;
-
 
 --08. The HR manager wants to identify departments that have more than five employees. This report will help determine which departments may need additional team leaders.
 SELECT department_id, COUNT(*) as employee_count
