@@ -3,10 +3,12 @@ SELECT employee_id, first_name, job_id, salary
 FROM employees
 WHERE salary > 5000;
 
+
 --02. The HR department wants to prepare a report of employees working in department 50 to review staffing levels.
 SELECT employee_id, first_name, last_name, department_id
 FROM employees
 WHERE department_id = 50;
+
 
 --03. The HR manager is preparing a report to identify employees whose salaries fall between ₹3,000 and ₹7,000. 
 --The report will help identify employees within this salary range for an internal compensation review.
@@ -14,22 +16,26 @@ SELECT employee_id, first_name, last_name, salary
 FROM employees
 WHERE salary BETWEEN 3000 AND 7000;
 
+
 --04. During a data-quality audit, the HR team discovers that some employee records do not have a department assigned. 
 --They want to identify these records before updating the employee database.
 SELECT employee_id, first_name, last_name, department_id
 FROM employees
 WHERE department_id IS NULL;
 
+
 --05. The HR team is searching for employees whose first names begin with the letter S. They want to prepare a list of these employees for an internal communication.
 SELECT employee_id, first_name, last_name
 FROM employees
 WHERE UPPER(first_name) LIKE 'S%';
+
 
 --06. The HR manager wants to recognize the five highest-paid employees in the company for a special compensation review.
 SELECT employee_id, first_name, last_name, salary
 FROM employees
 ORDER BY salary DESC
 FETCH FIRST 5 ROWS ONLY;
+
 
 --07. The finance department wants to compare salary expenses across departments. 
 --The manager needs a report showing the total salary expenditure for each department that has employees.
@@ -38,6 +44,7 @@ FROM employees
 WHERE department_id IS NOT NULL
 GROUP BY department_id
 ORDER BY department_id ASC;
+
 
 --08. The HR manager wants to identify departments that have more than five employees. This report will help determine which departments may need additional team leaders.
 SELECT department_id, COUNT(*) as employee_count
